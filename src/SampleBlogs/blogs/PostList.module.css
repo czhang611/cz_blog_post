@@ -1,0 +1,15 @@
+.sample_blog {
+    margin: 10px auto;
+    width:60%;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.post_container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
