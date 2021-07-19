@@ -1,16 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import classes from './AddPost.module.css';
+import AuthContext from '../../store/auth-context';
 
 const AddPost = (props) => {
     const titleRef = useRef('');
     const contentRef = useRef('');
+    const authCtx = useContext(AuthContext);
+    const email = authCtx.email;
+
 
     const submitHandler = (event) => {
         event.preventDefault();
 
         const post = {
             //id: Math.random().toString(),
-            email:'cz05d@my.fsu.edu',
+            email: email,
             title: titleRef.current.value,
             content: contentRef.current.value
         };

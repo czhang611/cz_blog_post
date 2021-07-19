@@ -63,7 +63,8 @@ const MyBlogs = () => {
         });
 
         const data = await response.json();
-        console.log(data);
+        console.log("In MyBlogs, data = ", data);
+        fetchPostsHandler();
     }
 
     let content = <p>Found no posts.</p>;

@@ -62,6 +62,7 @@ const AuthForm = () => {
         }).then(res => {
             setIsLoading(false);
             if (res.ok) {
+                //console.log(res.json);
                 return res.json();
             } else {
                 return res.json().then(data => {
@@ -77,8 +78,11 @@ const AuthForm = () => {
         })
         .then((data) => {
             const expirationTime = new Date(new Date().getTime() + (+data.expiresIn * 1000));
-            authCtx.login(data.idToken, expirationTime.toISOString());
+            authCtx.login(data.idToken, expirationTime.toISOString(), enteredEmail);
+            authCtx.email = enteredEmail;
+            authCtx.isLoggedIn = true;
             history.replace('/');
+            console.log("In AuthForm, authCtx = ", authCtx);
         })
         .catch((err) => {
             alert(err.message);

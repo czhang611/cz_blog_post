@@ -10,7 +10,7 @@ import MyBlogs from './MyBlogs/MyBlogs';
 
 const App = () => {
     const authCtx = useContext(AuthContext);
-
+    console.log("In App.js, authCtx = ", authCtx);
     return (
         <Layout>
             <Switch>
