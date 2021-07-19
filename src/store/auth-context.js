@@ -40,18 +40,23 @@ const retrieveStoredToken = () => {
 
 export const AuthContextProvider = (props) => {
     const tokenData = retrieveStoredToken();
-    let email;
+    let loginEmail;
     let initialToken;
     if (tokenData) {
         initialToken = tokenData.token;
-        email = tokenData.email;
+        loginEmail = tokenData.email;
     }
     const [ token, setToken ] = useState(initialToken);
-
+    const [ email, setEmail ] = useState(loginEmail);
+    
     const userIsLoggedIn = !!token;
+
+    //const [ isLoggedIn, setIsLoggedIn ] = useState(userIsLoggedIn);
 
     const logoutHandler = useCallback(() => {
         setToken(null);
+        setEmail('');
+        //setIsLoggedIn(false);
         localStorage.removeItem('cz_blog_posts_token');
         localStorage.removeItem('expiration_time');
         localStorage.removeItem('email');
@@ -75,7 +80,7 @@ export const AuthContextProvider = (props) => {
 
     useEffect(() => {
         if (tokenData) {
-            console.log(tokenData.remainingTime);
+            //console.log(tokenData.remainingTime);
             logoutTimer = setTimeout(logoutHandler, tokenData.remainingTime);
         }
     }, [tokenData, logoutHandler]);

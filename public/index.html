@@ -19,5 +19,29 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDYfDLiIij0yA7KwjVCzBfpzJ6_9vr-FNk",
+            authDomain: "cz-blog-posts.firebaseapp.com",
+            databaseURL: "https://cz-blog-posts-default-rtdb.firebaseio.com",
+            projectId: "cz-blog-posts",
+            storageBucket: "cz-blog-posts.appspot.com",
+            messagingSenderId: "3714469524",
+            appId: "1:3714469524:web:2a5070ab6d93d4cbe02e81",
+            measurementId: "G-8L92L3DF2Q"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>    
   </body>
 </html>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PostsList from './BlogPosts/PostsList';
 import AddPost from './BlogPosts/AddPost';
 import classes from './MyBlogs.module.css';
+//import FirebaseService from '../components/Firebase/FirebaseService';
 
 const MyBlogs = () => {
     const [ posts, setPosts ] = useState([]);
@@ -31,6 +32,7 @@ const MyBlogs = () => {
                 });
             }
 
+            //console.log("In fetchPostsHandler in MyBlogs.js, loadedPosts = ", loadedPosts);
             setPosts(loadedPosts);
 
 //            const transformedPosts = data.results.map((postData) => {
@@ -54,7 +56,9 @@ const MyBlogs = () => {
     }, [fetchPostsHandler]);
 
     async function addPostHandler(post) {
-        const response = await fetch(BLOGPOSTS_URL, {
+        //console.log("In MyBlogs.js addPostHandler, post = ", post);
+        //const response = await fetch(BLOGPOSTS_URL, {
+        await fetch(BLOGPOSTS_URL, {
             method: 'POST',
             body: JSON.stringify(post),
             headers: {
@@ -62,14 +66,42 @@ const MyBlogs = () => {
             }
         });
 
-        const data = await response.json();
-        console.log("In MyBlogs, data = ", data);
+        //const data = await response.json();
+        //console.log("In MyBlogs, data = ", data);
         fetchPostsHandler();
     }
+
+//    async function deletePostHandler(postId) {
+//        console.log("In MyBlogs.js deletePostHandler, postID = ", postId);
+//
+//        //const deletedPost = {
+//        //    title: post.title,
+//        //    email: post.email,
+//        //    content: post.email
+//        //};
+//
+//        //const response = await fetch(BLOGPOSTS_URL, {
+//
+//        //await fetch(BLOGPOSTS_URL, {
+//        //    method: 'DELETE',
+//        //    body: JSON.stringify(deletedPost),
+//        //    headers: {
+//        //        'Content-Type': 'application/json'
+//        //    }
+//        //});
+//
+//        //console.log(response.json());
+//        //const data = await response.json();
+//        //console.log("In MyBlogs, data = ", data);
+//
+//        //fetchPostsHandler();
+//    }
 
     let content = <p>Found no posts.</p>;
 
     if (posts.length > 0) {
+        //console.log("In MyBlogs.js, posts = ", posts);
+        //content = <PostsList posts={posts} onDelete={deletePostHandler} />;
         content = <PostsList posts={posts} />;
     }
 

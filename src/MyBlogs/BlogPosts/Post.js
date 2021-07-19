@@ -5,13 +5,14 @@ import AuthContext from '../../store/auth-context';
 const Post = (props) => {
     const authCtx = useContext(AuthContext);
     const email = authCtx.email;
-    console.log("email in authCtx = ", email);
-    console.log("In Post.js, props = ", props);
-    console.log(email === props.email);
+    //console.log("email in authCtx = ", email);
+    //console.log("In Post.js, props = ", props);
+    //console.log(email === props.email);
 
     const deleteHandler = (event) => {
         event.preventDefault();
-        props.onDelete(props.title);
+        //console.log("In deleteHandler in Post.js: props = ", props);
+        props.onDelete(props);
     }
     return (
         <li className={classes.post}>
