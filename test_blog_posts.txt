@@ -1,0 +1,17 @@
+[
+{
+	"email": "cz05d@my.fsu.edu",
+	"title": "A First Post added from Postman",
+	"content": "First new post added by sending POST request through Postman"
+},
+{
+	"email": "cz05d@my.fsu.edu",
+	"title": "A Second Post added from Postman",
+	"content": "Second new post added by sending POST request through Postman"
+},
+{
+	"email": "cz05d@my.fsu.edu",
+	"title": "A Third Post added from Postman",
+	"content": "Third new post added by sending POST request through Postman"
+}
+]
